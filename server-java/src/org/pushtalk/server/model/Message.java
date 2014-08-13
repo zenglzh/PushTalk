@@ -23,7 +23,6 @@ public class Message implements Comparable<Message> {
         this.time = new Date().getTime();
     }
     
-    @Override
     public int compareTo(Message o) {
         if (null == o) return -1;
         if (o.id == this.id) return 0;

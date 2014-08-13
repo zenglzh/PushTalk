@@ -50,7 +50,6 @@ public class RecentChat implements Comparable<RecentChat> {
         return String.valueOf(isChannel);
     }
     
-    @Override
     public int compareTo(RecentChat o) {
         if (null == o) return -1;
         RecentChat rc = o;

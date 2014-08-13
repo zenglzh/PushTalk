@@ -136,17 +136,17 @@ public class TalkServiceImpl implements TalkService {
     
     
 	
-	@Override
+	
 	public List<Channel> getChannelListAll() {
 		return H2Database.getInstance().getChannelListAll();
 	}
 	
-	@Override
+	
 	public Channel getChannelByName(String channelName) {
 	    return H2Database.getInstance().getChannelByName(channelName);
 	}
 
-    @Override
+    
     public boolean createChannel(String channelName, String udid) {
         Channel channel = new Channel(channelName);
         H2Database.getInstance().insertChannel(channel);
@@ -154,7 +154,7 @@ public class TalkServiceImpl implements TalkService {
         return true;
     }
 
-	@Override
+	
 	public boolean enterChannel(String channelName, String udid) {
         boolean alreadyIn = H2Database.getInstance().isUserInChannel(udid, channelName);
         if (!alreadyIn) {
@@ -166,7 +166,7 @@ public class TalkServiceImpl implements TalkService {
         }
 	}
 
-	@Override
+	
 	public boolean exitChannel(String channelName, String udid) {
 		int deletedUserChannel = H2Database.getInstance().deleteUserChannel(udid, channelName);
 		if (deletedUserChannel > 0) {
@@ -184,7 +184,7 @@ public class TalkServiceImpl implements TalkService {
 	}
 	
 
-	@Override
+	
 	public User getUserByUdid(String udid) {
 		User user = H2Database.getInstance().getUserByUdid(udid);
 		if (null == user) return null;
@@ -194,12 +194,12 @@ public class TalkServiceImpl implements TalkService {
 		return user;
 	}
 
-    @Override
+    
     public User getUserByName(String name) {
         return H2Database.getInstance().getUserByName(name);
     }
     
-	@Override
+	
 	public boolean registerUser(String udid, String userName) {
 	    User user = H2Database.getInstance().getUserByUdid(udid);
 	    if (null != user) {
@@ -213,7 +213,7 @@ public class TalkServiceImpl implements TalkService {
 	    }
 	}
 
-	@Override
+	
 	public List<User> getUserListByChannel(String channelName) {
 	    return H2Database.getInstance().getUserListByChannel(channelName);
 	}
